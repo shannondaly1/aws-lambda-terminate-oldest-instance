@@ -5,7 +5,7 @@ def lambda_handler(event, context):
     
     oldest_instance_id = ''
     instances_list = []
-    client = boto3.client('ec2')
+    client = boto3.client('ec2', region_name='us-east-1')
     response = client.describe_instances()    
     for r in response['Reservations']:
         for i in r['Instances']:
